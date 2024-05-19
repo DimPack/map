@@ -19,13 +19,12 @@ team.set('Benjamin','39');
  * @returns string
  */
 function addPoints(map, player, points) {
-    if (map.has(player)) {
-        const pointPlayer = map.get(player);
-        const newPointPlayer = Number(pointPlayer) + Number(points);
-        map.set(player, newPointPlayer);
-        return `${player} has +${points} points added to his total of ${newPointPlayer}.`;
+    if (!map.has(player)) {
+        return'No such player found !';
     } 
-    return'No such player found !';
+    const newPointPlayer = Number(map.get(player)) + Number(points);
+    map.set(player, newPointPlayer);
+    return `${player} has +${points} points added to his total of ${newPointPlayer}.`;
 }
 
 console.log(addPoints(team, 'Daniel', 4));
@@ -39,13 +38,12 @@ console.log(addPoints(team, 'Asse', 8));
  * @returns string
  */
 function subtractPoints(map, player, points) {
-    if (map.has(player)) {
-        const pointPlayer = map.get(player);
-        const newPointPlayer = Number(pointPlayer) - Number(points);
-        map.set(player, newPointPlayer);
-        return `${player} has -${points} points added to his total of ${newPointPlayer}.`;
-    } 
-    return'No such player found !';
+    if (!map.has(player)) {
+        return'No such player found !';
+    }
+    const newPointPlayer = Number(map.get(player)) - Number(points);
+    map.set(player, newPointPlayer);
+    return `${player} has -${points} points added to his total of ${newPointPlayer}.`;
 }
 
 console.log(subtractPoints(team, 'Benjamin', 9));
@@ -58,8 +56,7 @@ console.log(subtractPoints(team, 'Asese', 8));
  * @returns string
  */
 function deletePlayer(map, player) {
-    if (map.has(player)) {
-        map.delete(player);
+    if (map.delete(player)) {
         return `${player} has been removed from the team!`
     }
     return'No such player found !';
