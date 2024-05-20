@@ -126,25 +126,20 @@ address: {
     }
 },
 contacts:{
-    email
+    email: userEmail
 },
 hobbies:[,secondHobi],
 family: {
-    children
+    children:[{name: firstChildName}]
 }
 } = user;
 
 
-const universityUser = university;
-const cityUser = city;
-const latitudeUser = latitude;
-const userEmail = email;
-const secondHobbie = secondHobi;
-const firstChildName = children[0].name;
 
-console.log(universityUser);
-console.log(cityUser);
-console.log(latitudeUser);
+
+console.log(university);
+console.log(city);
+console.log(latitude);
 console.log(userEmail);
-console.log(secondHobbie);
+console.log(secondHobi);
 console.log(firstChildName);
